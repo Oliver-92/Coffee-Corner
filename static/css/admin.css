@@ -1,0 +1,26 @@
+body{
+    background-image: url("/static/img/fondo.jpg");
+}
+
+table.custom-table{
+    width: 70%;
+    max-width: 800px;
+    background-color: burlywood !important;
+    justify-content:center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+}
+
+table.custom-thead{
+    background-color: burlywood !important;
+}
+
+th, td, tr {
+    background-color: burlywood !important;
+    text-align: center;
+    vertical-align: middle;
+}
+
+

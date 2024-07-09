@@ -1,0 +1,37 @@
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit.css') }}">
+</head>
+<body>
+{% for c in cafes %}
+<form class="form-cafe" method="post" action="/update" enctype="multipart/form-data">
+    <input type="hidden" name="form_type" value="cafe">
+    ID
+    <input type="text" value="{{c[0]}}" name="txtID" id="txtID" readonly><br>
+    Product
+    <input type="text" value="{{c[1]}}" name="txtCafe" id="txtCafe"><br>
+    Price
+    <input type="text" value="{{c[2]}}" name="txtPrecio" id="txtPrecio"><br>
+    <input type="submit" value="Guardar">
+</form>
+{% endfor %}
+
+{% for p in postres %}
+<form class="form-postres" method="post" action="/update" enctype="multipart/form-data">
+    <input type="hidden" name="form_type" value="postres">
+    ID:
+    <input type="text" value="{{p[0]}}" name="txtID2" id="txtID2" readonly><br>
+    Produc
+    <input type="text" value="{{p[1]}}" name="txtPostre" id="txtPostre"><br>
+    Price
+    <input type="text" value="{{p[2]}}" name="txtPrecio2" id="txtPrecio2"><br>
+    <input type="submit" value="Guardar">
+</form>
+{% endfor %}
+</body>
+</html>

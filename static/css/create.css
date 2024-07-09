@@ -1,0 +1,19 @@
+body{
+    background-image: url("/static/img/fondo.jpg");
+}
+
+section{
+    background-color: burlywood;
+    max-width: 500px;
+    padding: 5px 15px 15px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    margin: auto;
+    border: 1px solid black;
+}
+
+input{
+    display: grid;
+    justify-content:center;
+    width: 500px;
+}

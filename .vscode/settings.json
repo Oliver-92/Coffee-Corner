@@ -1,0 +1,10 @@
+{
+    "emmet.preferences": {
+
+    },
+    "emmet.includeLanguages": {
+    "html": "html",
+    "jinja-html": "html",  // Agrega esta línea para que reconozca los archivos Jinja como HTML
+    "python": "html"  // Si tienes HTML embebido en archivos Python
+}
+}
