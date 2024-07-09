@@ -2,10 +2,10 @@ body{
     background-image: url("/static/img/fondo.jpg");
 }
 
-table.custom-table{
+.table{
     width: 70%;
     max-width: 800px;
-    background-color: burlywood !important;
+  
     justify-content:center;
     align-items: center;
     margin-left: auto;
@@ -13,12 +13,10 @@ table.custom-table{
     border: 1px solid black;
 }
 
-table.custom-thead{
-    background-color: burlywood !important;
-}
+
 
 th, td, tr {
-    background-color: burlywood !important;
+    background-color: burlywood;
     text-align: center;
     vertical-align: middle;
 }
