@@ -24,30 +24,25 @@ El proyecto está desplegado en PythonAnywhere y es accesible en [https://eze92.
 
 ## Estructura del Proyecto
 
-Coffe Corner/
-│
-├── static/
-│   ├── css/
-│   │   ├── Admin.css
-│   │   ├── Create.css
-│   │   ├── Edit.css
-│   │   ├── Header.css
-│   │   └── Style.css
-│   │
-│   └── img/
-│       └── Fondo.jpg
-│
-├── templates/
-│   ├── coffee/
-│   │   ├── Admin.html
-│   │   ├── Create.html
-│   │   ├── Edit.html
-│   │   └── Index.html
-│   │
-│   └── Header.html
-│
-├── app.py
-└── requirements.txt
+- Coffe Corner/
+  - static/
+    - css/
+      - Admin.css
+      - Create.css
+      - Edit.css
+      - Header.css
+      - Style.css
+    - img/
+      - Fondo.jpg
+  - templates/
+    - coffee/
+      - Admin.html
+      - Create.html
+      - Edit.html
+      - Index.html
+    - Header.html
+  - app.py
+  - requirements.txt
 
 ## Uso
 
