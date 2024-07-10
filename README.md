@@ -53,17 +53,21 @@ El proyecto está desplegado en PythonAnywhere y es accesible en [https://eze92.
 ## Capturas de pantalla
 
 ### Página de inicio
-![Página de inicio](screenshots/01-index.jpg)
 *Esta es la página principal donde los usuarios pueden ver el menú completo.*
+![Página de inicio](screenshots/01-index.jpg)
+
 
 ### Página de administración
-![Página de administración](screenshots/02-admin.jpg)
 *Aquí los administradores pueden editar o eliminar productos del menú.*
+![Página de administración](screenshots/02-admin.jpg)
+
 
 ### Página de edición
-![Página de administración](screenshots/03-edit.jpg)
 *Aquí se pueden editar el nombre y/o precio del producto del menú.*
+![Página de administración](screenshots/03-edit.jpg)
+
 
 ### Formulario de creación
-![Formulario de creación](screenshots/04-Add-product.jpg)
 *Este formulario permite añadir nuevos productos al menú.*
+![Formulario de creación](screenshots/04-Add-product.jpg)
+
