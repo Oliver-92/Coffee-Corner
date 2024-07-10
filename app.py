@@ -6,12 +6,6 @@ from flask import render_template, request, redirect
 # Conexión la base de datos en mysql
 from flask_mysqldb import MySQL
 
-# Importamos datetime para nombre de las fotos y evitar sobrescritura
-from datetime import datetime
-
-#Importamos paquetes de intergaz con el sistema operativo
-import os
-
 # Crear aplicación
 
 app = Flask(__name__)
@@ -132,7 +126,7 @@ def edit(form_type, id):
 
 #--------------------------------------------------------------------------------------
 
-# Función para actualizar los datos de una pelicula
+# Función para actualizar los datos de un registro
 @app.route('/update', methods=['POST'])
 def update():
     form_type = request.form.get('form_type')
