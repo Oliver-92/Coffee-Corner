@@ -19,7 +19,7 @@ app.config['MYSQL_DB'] = 'menu'
 
 mysql = MySQL(app)
 
-# Ruta de la raiz del sitio
+# Ruta de la raiz del sitio y función para mostrar los registros en el index
 @app.route('/')
 def index():
     conn = mysql.connection  # Nos conectamos a la bbdd
@@ -41,7 +41,7 @@ def index():
 
 #--------------------------------------------------------------------------------------
 
-# Ruta admin
+# Ruta admin y función para mostrar los registros en la página de admin
 @app.route('/admin')
 def admin():
     conn = mysql.connection  # Nos conectamos a la bbdd
@@ -72,6 +72,8 @@ def create():
 # Función para recibir los valores del formulario y pasarlos a variables locales
 @app.route('/store', methods=['POST'])
 def storage():
+    # Condicional para seleccionar la tabla correspondiente (cafe o postres)
+    # Tabla cafe
     if 'txtCafe' in request.form and 'txtPrecio' in request.form:
         _nombre = request.form['txtCafe']
         _precio = request.form['txtPrecio']
@@ -83,6 +85,7 @@ def storage():
         sql = "INSERT INTO `menu`.`cafe` \
             (`id`,`nombre`,`precio`) \
                 VALUES(NULL, %s, %s);"
+    # Tabla postres           
     elif 'txtPostre' in request.form and 'txtPrecio2' in request.form:
         _nombre = request.form['txtPostre']
         _precio = request.form['txtPrecio2']
@@ -110,14 +113,16 @@ def storage():
 # Función para editar un registro
 @app.route('/edit/<form_type>/<int:id>')
 def edit(form_type, id):
-    conn = mysql.connection
-    cursor = conn.cursor()
-
+    conn = mysql.connection # Nos conectamos a la bbdd
+    cursor = conn.cursor() # En cursor vamos a realizar las operaciones
+    # Condicional para seleccionar la tabla correspondiente (cafe o postres)
+    # Tabla cafe
     if form_type == 'cafe':
         cursor.execute("SELECT * FROM cafe WHERE id=%s", (id,))
         cafes = cursor.fetchall()
         cursor.close()
         return render_template('coffee/edit.html', cafes=cafes)
+    # Tabla postres 
     elif form_type == 'postres':
         cursor.execute("SELECT * FROM postres WHERE id=%s", (id,))
         postres = cursor.fetchall()
@@ -129,36 +134,31 @@ def edit(form_type, id):
 # Función para actualizar los datos de un registro
 @app.route('/update', methods=['POST'])
 def update():
-    form_type = request.form.get('form_type')
-    if form_type == 'cafe':
-        _cafe = request.form['txtCafe']
+    conn = mysql.connection # Nos conectamos a la bbdd
+    cursor = conn.cursor() # En cursor vamos a realizar las operaciones
+    # Condicional para seleccionar la tabla correspondiente (cafe o postres)
+    # Tabla cafe
+    if 'txtCafe' in request.form and 'txtPrecio' in request.form:
+        _nombre = request.form['txtCafe']
         _precio = request.form['txtPrecio']
         _id = request.form['txtID']
-    
-        conn = mysql.connection
-        cursor = conn.cursor()
-    
+        # Definimos la sentencia SQL
         sql = "UPDATE menu.cafe SET nombre=%s, precio=%s WHERE id=%s"
-        params = (_cafe, _precio, _id)
-    
+        params = (_nombre, _precio, _id)
+        # Ejecutamos la sentencia SQL en el cursor
         cursor.execute(sql, params)
-    
         conn.commit()
         return redirect('/admin')
-    
-    elif form_type == 'postres':
-        _postre = request.form['txtPostre']
+    # Tabla postres 
+    elif 'txtPostre' in request.form and 'txtPrecio2' in request.form:
+        _nombre = request.form['txtPostre']
         _precio = request.form['txtPrecio2']
         _id = request.form['txtID2']
-    
-        conn = mysql.connection
-        cursor = conn.cursor()
-    
+        # Definimos la sentencia SQL
         sql = "UPDATE menu.postres SET nombre=%s, precio=%s WHERE id=%s"
-        params = (_postre, _precio, _id)
-    
+        params = (_nombre, _precio, _id)
+        # Ejecutamos la sentencia SQL en el cursor
         cursor.execute(sql, params)
-    
         conn.commit()
         return redirect('/admin')
 
@@ -167,17 +167,17 @@ def update():
 # Función para eliminar registro
 @app.route('/destroy/<form_type>/<int:id>')
 def destroy(form_type, id):
+    conn = mysql.connection # Nos conectamos a la bbdd
+    cursor = conn.cursor() # Almacenamos lo que devuelva la consulta
     
+    # Condicional para seleccionar la tabla correspondiente (cafe o postres)
+    # Tabla cafe
     if form_type == 'cafe':
-        conn = mysql.connection # Nos conectamos a la bbdd
-        cursor = conn.cursor() # Almacenamos lo que devuelva la consulta
         cursor.execute("DELETE FROM `menu`.`cafe` WHERE id=%s", (id,)) # Ejecutamos la secuencia SQL
         conn.commit()
         return redirect('/admin')
-    
+    # Tabla postres
     elif form_type == 'postres':
-        conn = mysql.connection # Nos conectamos a la bbdd
-        cursor = conn.cursor() # Almacenamos lo que devuelva la consulta
         cursor.execute("DELETE FROM `menu`.`postres` WHERE id=%s", (id,)) # Ejecutamos la secuencia SQL
         conn.commit()
         return redirect('/admin')
