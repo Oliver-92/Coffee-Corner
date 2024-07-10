@@ -1,6 +1,6 @@
 # Coffe Corner
 
-Coffe Corner es un CRUD (Create, Read, Update, Delete) desarrollado con Python, Flask y MySQL, que presenta un menú de café a través de una interfaz web sencilla construida con HTML y CSS puro.
+Coffe Corner es un CRUD (Create, Read, Update, Delete) desarrollado con Python, Flask y MySQL, que presenta el menú de un Café a través de una interfaz web sencilla construida con HTML y CSS puro.
 
 ## Descripción
 
