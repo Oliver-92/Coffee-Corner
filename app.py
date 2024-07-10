@@ -144,7 +144,6 @@ def update():
         cursor.execute(sql, params)
     
         conn.commit()
-        conn.close()
         return redirect('/admin')
     
     elif form_type == 'postres':
@@ -161,7 +160,6 @@ def update():
         cursor.execute(sql, params)
     
         conn.commit()
-        conn.close()
         return redirect('/admin')
 
 #--------------------------------------------------------------------------------------
