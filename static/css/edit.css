@@ -4,7 +4,8 @@ body{
 
 form{
     background-color: burlywood;
-    max-width: 20%;
+    max-width: 50%;
+    width: 450px;
     margin: 100px auto;
     padding: 20px;
     font-family: Arial, Helvetica, sans-serif;
@@ -19,4 +20,10 @@ input{
     width: 80%;
     font-size: 20px;
     text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+    form{
+        max-width: 70%;
+    }
 }

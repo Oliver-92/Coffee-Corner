@@ -15,8 +15,8 @@
             <p class="established">Est. 2020</p>
             <hr>
             <section>
-                <h2>Coffee</h2>
-                <img src="https://cdn.freecodecamp.org/curriculum/css-cafe/coffee.jpg" alt="coffee icon" />
+                <h2>Coffees</h2>
+                <img src="static\img\coffee.jpg" alt="coffee icon" />
                 {% for c in cafes %}
                 <article class="item">
                     <p class="flavor">{{c[1]}}</p><p class="price">{{ "%.2f"|format(c[2]) }}</p>
@@ -25,7 +25,7 @@
             </section>
             <section>
                 <h2>Desserts</h2>
-                <img src='https://cdn.freecodecamp.org/curriculum/css-cafe/pie.jpg' alt='pie icon'>
+                <img src='static/img/dessert.jpg' alt='pie icon'>
                 {% for p in postres %}
                 <article class="item">
                     <p class="dessert">{{p[1]}}</p><p class="price">{{ "%.2f"|format(p[2]) }}</p>

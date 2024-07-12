@@ -4,6 +4,7 @@ body{
 
 .table{
     width: 70%;
+    min-width: 400px;
     max-width: 800px;
     justify-content:center;
     align-items: center;
@@ -19,5 +20,4 @@ th, td, tr {
     text-align: center;
     vertical-align: middle;
 }
-
 

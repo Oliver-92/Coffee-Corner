@@ -28,6 +28,24 @@
     margin: 0 1em;
 }
 
+@media screen and (max-width: 768px){
+    #li{
+        margin: 0 0.5em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #li{
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #li{
+        margin: 0 -0.5em;
+    }
+}
+
 #link{
     display: block;
     padding: 0.5em 1em;
