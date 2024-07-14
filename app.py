@@ -1,7 +1,7 @@
 from flask import Flask
 
 # Importar función para permitir el render de los templates
-from flask import render_template, request, redirect, flash, url_for
+from flask import render_template, request, redirect
 
 # Conexión la base de datos en mysql
 from flask_mysqldb import MySQL
