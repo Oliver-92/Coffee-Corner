@@ -6,11 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/create.css') }}">
     <title>Add Product</title>
+    <script>
+        function validateForm(form) {
+            let isValid = true;
+            let messages = [];
+
+            // Validación para el formulario de café
+            if (form['form_type'].value === 'cafe') {
+                const cafe = form['txtCafe'].value.trim();
+                const precio = form['txtPrecio'].value.trim();
+                if (!cafe) {
+                    messages.push('Por favor, ingrese el nombre del café.');
+                    isValid = false;
+                }
+                if (!precio) {
+                    messages.push('Por favor, ingrese el precio del café.');
+                    isValid = false;
+                } else if (isNaN(precio) || parseFloat(precio) <= 0) {
+                    messages.push('Por favor, ingrese un precio válido para el café.');
+                    isValid = false;
+                }
+            }
+
+            // Validación para el formulario de postres
+            if (form['form_type'].value === 'postres') {
+                const postre = form['txtPostre'].value.trim();
+                const precio = form['txtPrecio2'].value.trim();
+                if (!postre) {
+                    messages.push('Por favor, ingrese el nombre del postre.');
+                    isValid = false;
+                }
+                if (!precio) {
+                    messages.push('Por favor, ingrese el precio del postre.');
+                    isValid = false;
+                } else if (isNaN(precio) || parseFloat(precio) <= 0) {
+                    messages.push('Por favor, ingrese un precio válido para el postre.');
+                    isValid = false;
+                }
+            }
+
+            // Mostrar mensajes de error y prevenir el envío del formulario
+            if (!isValid) {
+                alert(messages.join('\n'));
+                return false; // Prevenir el envío del formulario
+            }
+            return true; // Permitir el envío del formulario
+        }
+    </script>
 </head>
 <body>
     <section>
         <h1>Coffees</h1>
-        <form method='post' action='/store' enctype='multipart/form-data'>
+        <form class="form-cafe" method='post' action='/store' enctype='multipart/form-data' onsubmit="return validateForm(this);">
+            <input type="hidden" name="form_type" value="cafe">
             Product:
             <input type='text' name="txtCafe" id ="txtCafe" /><br>
             Price:
@@ -21,7 +69,8 @@
 <br><br>
     <section>
         <h1>Desserts</h1>
-        <form method='post' action='/store' enctype='multipart/form-data'>
+        <form class="form-postres" method='post' action='/store' enctype='multipart/form-data' onsubmit="return validateForm(this);">
+            <input type="hidden" name="form_type" value="postres">
             Product:
             <input type='text' name="txtPostre" id ="txtPostre" /><br>
             Price:

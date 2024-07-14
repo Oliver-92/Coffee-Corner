@@ -1,7 +1,7 @@
 from flask import Flask
 
 # Importar función para permitir el render de los templates
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, flash, url_for
 
 # Conexión la base de datos en mysql
 from flask_mysqldb import MySQL
@@ -9,6 +9,8 @@ from flask_mysqldb import MySQL
 # Crear aplicación
 
 app = Flask(__name__)
+
+app.secret_key = '3210'
 
 mysql  = MySQL()
 
@@ -142,6 +144,7 @@ def update():
         _nombre = request.form['txtCafe']
         _precio = request.form['txtPrecio']
         _id = request.form['txtID']
+ 
         # Definimos la sentencia SQL
         sql = "UPDATE menu.cafe SET nombre=%s, precio=%s WHERE id=%s"
         params = (_nombre, _precio, _id)
