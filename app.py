@@ -10,8 +10,6 @@ from flask_mysqldb import MySQL
 
 app = Flask(__name__)
 
-app.secret_key = '3210'
-
 mysql  = MySQL()
 
 app.config['MYSQL_HOST'] = 'localhost'
